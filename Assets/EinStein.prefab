@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 805757171645707804}
   - component: {fileID: 7591678958843071866}
   - component: {fileID: 6732312633480761233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EinStein
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

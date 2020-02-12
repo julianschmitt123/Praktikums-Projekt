@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    bool isGrounded;
+    public bool isGrounded = false;
 
     void Update()
     {
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = 2f;
+            velocity.y = 0f;
         }
 
 
@@ -64,12 +64,12 @@ public class PlayerMovement : MonoBehaviour
  //           rb.AddForce(0, 0, -forwardForce);
  //
  //       }
-                 if (jumpCooldown == 0 && Input.GetKeyDown(KeyCode.Space))
-               {
-                    jumpCooldown = jumpCooldownMax;
+                 //if (jumpCooldown == 0 && Input.GetKeyDown(KeyCode.Space))
+                 //{
+                 //   jumpCooldown = jumpCooldownMax;
  
-                    GetComponent<Rigidbody>().velocity += jumpSpeed * Vector3.up;
-                 }
+                 //   GetComponent<Rigidbody>().velocity += jumpSpeed * Vector3.up;
+                 //}
 
 
         float x = Input.GetAxis("Horizontal");
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+       controller.Move(move.normalized * speed * Time.deltaTime);
 
        if(Input.GetButtonDown("Jump") && isGrounded)
        {
