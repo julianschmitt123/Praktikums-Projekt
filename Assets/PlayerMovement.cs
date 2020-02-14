@@ -3,8 +3,6 @@
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Rigidbody rb;
-
 
     // public float forwardForce;
     // public float sidewaysForce;
@@ -30,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Game over");
         }
 
-        if (rb.position.y < -20f)
+        if (transform.position.y < -20f)
         {
             FindObjectOfType<gameR>().EndGame();
         }
