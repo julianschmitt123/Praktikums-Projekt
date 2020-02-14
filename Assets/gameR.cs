@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class gameR : MonoBehaviour
 {
 
@@ -10,8 +10,12 @@ public class gameR : MonoBehaviour
     public int tick=0;
     public int tickMax = 10;
     public Color dangerColor;
-    
+    bool gameHasEnded = false;
     private Renderer rend;
+    public float restartDelay = 1f;
+
+
+
 
     void Awake()
     {
@@ -57,16 +61,29 @@ public class gameR : MonoBehaviour
         else tick--;
 
 
-     
 
 
-
-
-
-
-
-
-
-        
     }
+
+    public void EndGame()
+    {
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("GAME OVER");
+            Invoke("Restart", restartDelay);
+        }
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+
+
+
+
+
 }
