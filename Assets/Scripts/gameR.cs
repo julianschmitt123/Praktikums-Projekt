@@ -69,16 +69,14 @@ public class gameR : MonoBehaviour
     {
         if (gameHasEnded == false)
         {
+            Cursor.lockState = CursorLockMode.None;
             gameHasEnded = true;
             Debug.Log("GAME OVER");
-            Invoke("Restart", restartDelay);
+            Debug.Log("Restart");
+            SceneManager.LoadScene("End");
         }
     }
 
-    void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 
 
 

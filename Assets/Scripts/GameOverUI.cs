@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
-    
+
     public void Quit()
     {
         Debug.Log("Quit Game");
@@ -13,14 +13,10 @@ public class GameOverUI : MonoBehaviour
     }
 
 
-    public class RestartGame : MonoBehaviour
+    public void RestartGameTwo()
     {
-        public void Restart()
-        {
-            Debug.Log("Restart");
-            SceneManager.LoadScene(SampleScene);
-        }
-
-
+        Debug.Log("Restart");
+        SceneManager.LoadScene("SampleScene");
     }
+
 }
