@@ -18,6 +18,17 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.3f;
     public LayerMask groundMask;
     public bool isGrounded = false;
+    public bool blockdrop = false;
+    public LayerMask blockMask;
+    public Transform blockCheck;
+    public bool isBlocked = false;
+
+
+
+
+
+
+
 
     void Update()
     {
@@ -42,10 +53,17 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = 0f;
         }
 
+        isBlocked = Physics.CheckSphere(blockCheck.position, groundDistance, groundMask);
+
+        if (isBlocked == true)
+        {
+            FindObjectOfType<gameR>().EndGame();
+        }
 
 
 
-      
+
+
         if (jumpCooldown >= 1)
         {   jumpCooldown--;
         }
