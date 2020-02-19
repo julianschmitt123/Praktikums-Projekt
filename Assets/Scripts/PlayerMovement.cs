@@ -54,10 +54,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isBlocked = Physics.CheckSphere(blockCheck.position, groundDistance, groundMask);
-
+        
         if (isBlocked == true)
         {
             FindObjectOfType<gameR>().EndGame();
+
+
         }
 
 
